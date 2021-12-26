@@ -1,5 +1,7 @@
 package guice;
 
-public abstract class VertxAbstractModule {
+import com.google.inject.AbstractModule;
 
+public abstract class VertxAbstractModule extends AbstractModule {
+    public Vertx
 }
