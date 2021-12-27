@@ -8,7 +8,7 @@ import lombok.val;
 import java.util.Map;
 
 public abstract class VertxEntity {
-    private VertxEntity(){}
+    public VertxEntity(){}
 
     public abstract JsonObject toJson();
 
