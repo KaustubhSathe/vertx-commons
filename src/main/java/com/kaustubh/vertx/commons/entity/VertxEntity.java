@@ -1,4 +1,4 @@
-package entity;
+package com.kaustubh.vertx.commons.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.vertx.core.json.JsonObject;

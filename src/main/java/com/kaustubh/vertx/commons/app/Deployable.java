@@ -1,8 +1,8 @@
-package app;
+package com.kaustubh.vertx.commons.app;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import guice.GuiceContext;
+import com.kaustubh.vertx.commons.guice.GuiceContext;
 import io.vertx.core.AbstractVerticle;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

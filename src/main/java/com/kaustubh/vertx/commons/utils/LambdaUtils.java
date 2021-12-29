@@ -1,4 +1,4 @@
-package utils;
+package com.kaustubh.vertx.commons.utils;
 
 import java.util.function.Function;
 

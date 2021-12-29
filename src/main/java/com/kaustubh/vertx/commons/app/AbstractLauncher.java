@@ -1,10 +1,8 @@
-package app;
+package com.kaustubh.vertx.commons.app;
 
 import com.google.inject.Module;
 import io.vertx.core.Launcher;
-import io.vertx.core.Vertx;
 import io.vertx.core.impl.cpu.CpuCoreSensor;
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -17,6 +15,6 @@ public abstract class AbstractLauncher extends Launcher {
 
     protected abstract Module[] getGoogleGuiceModules();
 
-    private List<Module> getALlGoogleGuiceModules
+//    private List<Module> getALlGoogleGuiceModules
 
 }

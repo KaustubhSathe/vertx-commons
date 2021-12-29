@@ -1,4 +1,4 @@
-package app;
+package com.kaustubh.vertx.commons.app;
 
 import lombok.Data;
 

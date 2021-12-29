@@ -1,4 +1,4 @@
-package utils;
+package com.kaustubh.vertx.commons.utils;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;

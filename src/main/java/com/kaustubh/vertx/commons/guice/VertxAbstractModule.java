@@ -1,4 +1,4 @@
-package guice;
+package com.kaustubh.vertx.commons.guice;
 
 import com.google.inject.AbstractModule;
 import io.vertx.core.Vertx;

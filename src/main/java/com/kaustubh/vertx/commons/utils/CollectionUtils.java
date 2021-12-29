@@ -1,4 +1,4 @@
-package utils;
+package com.kaustubh.vertx.commons.utils;
 
 import com.google.common.collect.Streams;
 import org.apache.commons.lang3.tuple.ImmutablePair;

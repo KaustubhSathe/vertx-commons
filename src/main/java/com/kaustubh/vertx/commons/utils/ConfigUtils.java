@@ -1,4 +1,4 @@
-package utils;
+package com.kaustubh.vertx.commons.utils;
 
 import com.typesafe.config.*;
 import io.vertx.config.ConfigRetriever;
@@ -46,6 +46,6 @@ public final class ConfigUtils {
     }
 
     private static String getAppEnvironment(){
-        return System.getProperty("app.environment", "dev");
+        return System.getProperty("com.kaustubh.vertx.commons.app.environment", "dev");
     }
 }

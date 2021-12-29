@@ -1,4 +1,4 @@
-package utils;
+package com.kaustubh.vertx.commons.utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

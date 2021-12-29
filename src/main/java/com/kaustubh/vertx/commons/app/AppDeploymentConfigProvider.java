@@ -1,8 +1,8 @@
-package app;
+package com.kaustubh.vertx.commons.app;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import utils.ConfigProvider;
+import com.kaustubh.vertx.commons.utils.ConfigProvider;
 
 import java.io.IOException;
 
@@ -20,10 +20,10 @@ public class AppDeploymentConfigProvider implements Provider<AppDeploymentConfig
     }
 
     private String getAppDeploymentConfigDir(){
-        return System.getProperty("app.deployment.config.dir", "config/app");
+        return System.getProperty("com.kaustubh.vertx.commons.app.deployment.config.dir", "config/com.kaustubh.vertx.commons.app");
     }
 
     private String getAppDeploymentConfigFileName(){
-        return System.getProperty("app.deployment.config.filename","app-deployment");
+        return System.getProperty("com.kaustubh.vertx.commons.app.deployment.config.filename","com.kaustubh.vertx.commons.app-deployment");
     }
 }
