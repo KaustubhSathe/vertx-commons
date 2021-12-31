@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.kaustubh.vertx.commons.utils.ConfigProvider;
-import io.vertx.rxjava3.core.Vertx;
+import io.vertx.core.Vertx;
 
 
 public class DefaultModule extends VertxAbstractModule{
@@ -21,7 +21,6 @@ public class DefaultModule extends VertxAbstractModule{
     @Override
     protected void bindConfiguration(){
         bind(Vertx.class).toInstance(this.vertx);
-        bind(io.vertx.core.Vertx.class).toInstance(this.vertx.getDelegate());
         bind(ObjectMapper.class).toInstance(getObjectMapper());
         bind(ConfigProvider.class).toInstance(getConfigProvider());
     }

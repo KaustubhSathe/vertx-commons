@@ -1,44 +1,66 @@
 package com.kaustubh.vertx.commons.app;
 
 import com.google.inject.Module;
+import com.kaustubh.vertx.commons.guice.DefaultModule;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Launcher;
-import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.impl.cpu.CpuCoreSensor;
 import io.vertx.core.json.JsonObject;
+import io.vertx.core.Vertx;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
 public abstract class AbstractLauncher extends Launcher {
     public static final Integer NUM_OF_CORES = CpuCoreSensor.availableProcessors();
 
-    protected abstract Module[] getGoogleGuiceModules();
+    protected abstract Module[] getGoogleGuiceModules(Vertx vertx);
+
+    private List<Module> getAllGoogleGuiceModules(Vertx vertx){
+        List<Module> modules = new ArrayList<>();
+        modules.add(new DefaultModule(vertx));
+        modules.addAll(Arrays.asList(getGoogleGuiceModules(vertx)));
+        return modules;
+    }
 
     public AbstractLauncher() {
         super();
     }
 
     @Override
-    public abstract void afterConfigParsed(JsonObject config);
+    public void afterConfigParsed(JsonObject config) {
+    }
 
     @Override
-    public abstract void beforeStartingVertx(VertxOptions options);
+    public void beforeStartingVertx(VertxOptions options) {
+    }
 
     @Override
-    public abstract void afterStartingVertx(Vertx vertx);
+    public void afterStartingVertx(Vertx vertx) {
+        getGoogleGuiceModules(vertx);
+    }
 
     @Override
-    public abstract void beforeDeployingVerticle(DeploymentOptions deploymentOptions);
+    public void beforeDeployingVerticle(DeploymentOptions deploymentOptions) {
+        deploymentOptions.setInstances(NUM_OF_CORES);
+    }
 
     @Override
-    public abstract void beforeStoppingVertx(Vertx vertx);
+    public void beforeStoppingVertx(Vertx vertx) {
+    }
 
     @Override
-    public abstract void afterStoppingVertx();
+    public void afterStoppingVertx() {
+    }
+
+
 
     @Override
-    public abstract void handleDeployFailed(Vertx vertx, String mainVerticle, DeploymentOptions deploymentOptions, Throwable cause);
+    public void handleDeployFailed(Vertx vertx, String mainVerticle, DeploymentOptions deploymentOptions, Throwable cause) {
+    }
 }
