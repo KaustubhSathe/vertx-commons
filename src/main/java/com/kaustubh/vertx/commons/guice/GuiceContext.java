@@ -4,16 +4,18 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 
+import java.util.List;
+
 public class GuiceContext {
     private static volatile GuiceContext instance = null;
 
     private Injector injector;
 
-    private GuiceContext(Module... modules){
+    private GuiceContext(List<Module> modules){
         injector = Guice.createInjector(modules);
     }
 
-    public static synchronized void initialize(Module... modules){
+    public static synchronized void initialize(List<Module> modules){
         if(instance != null){
             throw new RuntimeException("Application context is already initialized.");
         }else{

@@ -2,6 +2,7 @@ package com.kaustubh.vertx.commons.app;
 
 import com.google.inject.Module;
 import com.kaustubh.vertx.commons.guice.DefaultModule;
+import com.kaustubh.vertx.commons.guice.GuiceContext;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Launcher;
 import io.vertx.core.VertxOptions;
@@ -19,12 +20,12 @@ import java.util.List;
 public abstract class AbstractLauncher extends Launcher {
     public static final Integer NUM_OF_CORES = CpuCoreSensor.availableProcessors();
 
-    protected abstract Module[] getGoogleGuiceModules(Vertx vertx);
+//    protected abstract Module[] getGoogleGuiceModules(Vertx vertx);
 
     private List<Module> getAllGoogleGuiceModules(Vertx vertx){
         List<Module> modules = new ArrayList<>();
         modules.add(new DefaultModule(vertx));
-        modules.addAll(Arrays.asList(getGoogleGuiceModules(vertx)));
+//        modules.addAll(Arrays.asList(getGoogleGuiceModules(vertx)));
         return modules;
     }
 
@@ -42,7 +43,7 @@ public abstract class AbstractLauncher extends Launcher {
 
     @Override
     public void afterStartingVertx(Vertx vertx) {
-        getGoogleGuiceModules(vertx);
+        GuiceContext.initialize(getAllGoogleGuiceModules(vertx));
     }
 
     @Override
